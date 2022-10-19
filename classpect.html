@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ele's Classpect</title>
+</head>
+<style>
+    div {
+        border: 1px solid darkred;
+        width: 55%;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+<body>
+    <div>For each of the following questions, chose the answer that you feel best fits you, and mark the 
+        importance of your answer to you. A question where all options seemed equally suitable and you selected 
+        mostly at random should be given a low importance, while a question where the answer you choose stood out 
+        strongly from all the others should be given a high importance.
+    </div>
+    <br>
+    <div> Which is most interesting to you?
+        <select id="Q1">
+            <option value="Q1Aa">Exploring the nature or possibilities of something.</option>
+            <option value="Q1Ab">Exploiting the value or usage of something.</option>
+            <option value="Q1Ac">Establishing the presence or impact of something.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q1I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Would you rather create and repair, or challenge and defeat?
+        <select id="Q2">
+            <option value="Q2Aa">Create and repair.</option>
+            <option value="Q2Ab">Challenge and defeat.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q2I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Would you rather take and give, or have and wield?
+        <select id="Q3">
+            <option value="Q3Aa">Take and give.</option>
+            <option value="Q3Ab">Have and wield.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q3I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Would you rather know and understand, or play with and change?
+        <select id="Q4">
+            <option value="Q4Aa">Know and understand.</option>
+            <option value="Q4Ab">Play with and change.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q4I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Would you rather forge ahead, or wait and see?
+        <select id="Q5">
+            <option value="Q5Aa">Forge ahead.</option>
+            <option value="Q5Ab">Wait and see.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q5I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Which sounds most like something you'd say when working in a team?
+        <select id="Q6">
+            <option value="Q6Aa">I know what we need to do.</option>
+            <option value="Q6Ab">I'll do what needs to be done.</option>
+            <option value="Q6Ac">We can do this!</option>
+            <option value="Q6Ad">I'll just take care of a few details...</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q6I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Which most describes you?
+        <select id="Q7">
+            <option value="Q7Aa">Cheerful and friendly.</option>
+            <option value="Q7Ab">Thoughtful and uncertain.</option>
+            <option value="Q7Ac">Goal-oriented and determined.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance: 
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q7I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Where are you in the fight?
+        <select id="Q8">
+            <option value="Q8Aa">On the front lines.</option>
+            <option value="Q8Ab">Providing backup.</option>
+            <option value="Q8Ac">At the strategy table.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q8I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>When a friend is making a choice, what's your input?
+        <select id="Q9">
+            <option value="Q9Aa">I'm here to back them up, whatever they choose.</option>
+            <option value="Q9Ab">I'm here to protect my own interests, I don't care otherwise.</option>
+            <option value="Q9Ac">I'm here to urge them to make the right choice, I have insight to offer.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q9I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Which of these do you most need to learn?
+        <select id="Q10">
+            <option value="Q10Aa">I need to learn to value and be good to myself.</option>
+            <option value="Q10Ab">I need to speak up and be open with others.</option>
+            <option value="Q10Ac">I need to learn to be more thoughtful or respectful with others.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q10I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>Which of these desires comes before all the others, for you?
+        <select id="Q11">
+            <option value="Q11Aa">I want to do right by my friends, and by myself.</option>
+            <option value="Q11Ab">I want to reach my goal, whatever that looks like.</option>
+            <option value="Q11Ac">I want to treasure what's truly important in life.</option>
+            <option value="Q11Ad">I want to be comfortable with myself and who I am.</option>
+            <option value="Q11Ae">I want to find the path that'll take me into a good future.</option>
+            <option value="Q11Af">I want to vividly experience life and all its possibilities in every moment.</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q11I"> - High
+          </div>
+    </div>
+    <br><br><br>
+    <div>If you were to be known, long after your death, by a title which commemorated your greatest deeds in life, 
+    which of the following rings closest to your desires?
+        <select id="Q12">
+            <option value="Q12Aa">The Builder</option>
+            <option value="Q12Ab">The Mender</option>
+            <option value="Q12Ac">The Victorious</option>
+            <option value="Q12Ad">The Calamitous</option>
+            <option value="Q12Ae">The Untamable</option>
+            <option value="Q12Af">The Honorable</option>
+            <option value="Q12Ag">The Good</option>
+            <option value="Q12Ah">The Great</option>
+            <option value="Q12Ai">The Wise</option>
+            <option value="Q12Aj">The All-Knowing</option>
+            <option value="Q12Ak">The Vortex</option>
+            <option value="Q12Al">The Nexus</option>
+        </select>
+        <br><div class="slidecontainer"> Importance:
+            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q12I"> - High
+        </div>
+    </div>
+    <br><br><br>
+    <div> <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
+        <br>
+        <a id="scoresgohere"></a>
+    </div>
+</body>
+<script>
+    const key = {
+        "Q1Aa": ["Mage", "Seer", "Witch", "Heir"],
+        "Q1Ab": ["Thief", "Rogue", "Knight", "Page"],
+        "Q1Ac": ["Maid", "Sylph", "Prince", "Bard"],
+        "Q2Aa": ["Maid", "Sylph"],
+        "Q2Ab": ["Prince", "Bard"],
+        "Q3Aa": ["Thief", "Rogue"],
+        "Q3Ab": ["Knight", "Page"],
+        "Q4Aa": ["Mage", "Seer"],
+        "Q4Ab": ["Witch", "Heir"],
+        "Q5Aa": ["Maid", "Prince", "Thief", "Knight", "Mage", "Witch"],
+        "Q5Ab": ["Sylph", "Bard", "Rogue", "Page", "Seer", "Heir"],
+        "Q6Aa": ["Thief", "Mage", "Witch"],
+        "Q6Ab": ["Maid", "Prince", "Knight"],
+        "Q6Ac": ["Rogue", "Page", "Heir"],
+        "Q6Ad": ["Sylph", "Bard", "Seer"],
+        "Q7Aa": ["Maid", "Bard", "Rogue", "Witch", "Heir"],
+        "Q7Ab": ["Sylph", "Rogue", "Page", "Mage", "Seer"],
+        "Q7Ac": ["Prince", "Thief", "Knight", "Seer", "Witch"],
+        "Q8Aa": ["Maid", "Prince", "Thief", "Knight", "Witch"],
+        "Q8Ab": ["Maid", "Rogue", "Page", "Mage", "Heir"],
+        "Q8Ac": ["Sylph", "Bard", "Thief", "Mage", "Seer"],
+        "Q9Aa": ["Rogue", "Knight", "Page", "Mage", "Heir"],
+        "Q9Ab": ["Maid", "Sylph", "Bard", "Thief", "Knight"],
+        "Q9Ac": ["Sylph", "Prince", "Seer", "Witch", "Heir"],
+        "Q10Aa": ["Maid", "Prince", "Rogue", "Page", "Heir"],
+        "Q10Ab": ["Sylph", "Bard", "Knight", "Page", "Mage"],
+        "Q10Ac": ["Prince", "Bard", "Thief", "Seer", "Witch"],
+        "Q11Aa": ["Maid", "Sylph"],
+        "Q11Ab": ["Prince", "Bard"],
+        "Q11Ac": ["Thief", "Rogue"],
+        "Q11Ad": ["Knight", "Page"],
+        "Q11Ae": ["Mage", "Seer"],
+        "Q11Af": ["Witch", "Heir"],
+        "Q12Aa": ["Maid"],
+        "Q12Ab": ["Sylph"],
+        "Q12Ac": ["Prince"],
+        "Q12Ad": ["Bard"],
+        "Q12Ae": ["Thief"],
+        "Q12Af": ["Rogue"],
+        "Q12Ag": ["Knight"],
+        "Q12Ah": ["Page"],
+        "Q12Ai": ["Mage"],
+        "Q12Aj": ["Seer"],
+        "Q12Ak": ["Witch"],
+        "Q12Al": ["Heir"]
+    }
+    let classes = {
+        "Maid": 0,
+        "Sylph": 0,
+        "Prince": 0,
+        "Bard": 0,
+        "Thief": 0,
+        "Rogue": 0,
+        "Knight": 0,
+        "Page": 0,
+        "Mage": 0,
+        "Seer":0 ,
+        "Witch": 0,
+        "Heir": 0
+    }
+    function calculateScores(){
+        //clear out the old answers
+        for (let x in classes){
+            classes[x] = 0;
+        }
+        //Q1
+        var q1 = document.getElementById("Q1").value;
+        for(let x in key[q1]){
+            classes[key[q1][x]] += 1 * document.getElementById("Q1I").value;
+        }
+        //Q2
+        var q2 = document.getElementById("Q2").value;
+        for(let x in key[q2]){
+            classes[key[q2][x]] += 1 * document.getElementById("Q2I").value;
+        }
+        //Q3
+        var q3 = document.getElementById("Q3").value;
+        for(let x in key[q3]){
+            classes[key[q3][x]] += 1 * document.getElementById("Q3I").value;
+        }
+        //Q4
+        var q4 = document.getElementById("Q4").value;
+        for(let x in key[q4]){
+            classes[key[q4][x]] += 1 * document.getElementById("Q4I").value;;
+        }
+        //Q5
+        var q5 = document.getElementById("Q5").value;
+        for(let x in key[q5]){
+            classes[key[q5][x]] += 1 * document.getElementById("Q5I").value;;
+        }
+        //Q6
+        var q6 = document.getElementById("Q6").value;
+        for(let x in key[q6]){
+            classes[key[q6][x]] += 1 * document.getElementById("Q6I").value;;
+        }
+        //Q7
+        var q7 = document.getElementById("Q7").value;
+        for(let x in key[q7]){
+            classes[key[q7][x]] += 1 * document.getElementById("Q7I").value;;
+        }
+        //Q8
+        var q8 = document.getElementById("Q8").value;
+        for(let x in key[q8]){
+            classes[key[q8][x]] += 1 * document.getElementById("Q8I").value;;
+        }
+        //Q9
+        var q9 = document.getElementById("Q9").value;
+        for(let x in key[q9]){
+            classes[key[q9][x]] += 1 * document.getElementById("Q9I").value;;
+        }
+        //Q10
+        var q10 = document.getElementById("Q10").value;
+        for(let x in key[q10]){
+            classes[key[q10][x]] += 1 * document.getElementById("Q10I").value;;
+        }
+        //Q11
+        var q11 = document.getElementById("Q11").value;
+        for(let x in key[q11]){
+            classes[key[q11][x]] += 1 * document.getElementById("Q11I").value;;
+        }
+        //Q12
+        var q12 = document.getElementById("Q12").value;
+        for(let x in key[q12]){
+            classes[key[q12][x]] += 1 * document.getElementById("Q12I").value;;
+        }
+        console.log(classes)
+        const results = Object.entries(classes);
+        results.sort(function(a,b){return b[1]-a[1]});
+        document.getElementById("scoresgohere").innerHTML = "Your three highest results, in order, were " 
+            + results[0][0] + ", " + results[1][0] + ", and " + results[2][0] + ". Any of these may be a" + 
+            " good fit for you, depending on the Aspect they are paired with.";
+    }
+</script>
+</html>
