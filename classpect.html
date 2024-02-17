@@ -22,7 +22,7 @@
         <br><br>
         <button type="button" onclick="populateQuestionsClass()">Begin anew?</button>    <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
         <br><br><br>
-        Debug console.logs in place -- debugging the answers population
+        Debug console.logs in place -- defined runningHTML
         <a id="scoresgohere"></a>
     </div>
     <div id="questionsgohere">
@@ -103,6 +103,7 @@
         //FIXME
         console.log("got into the function")
         //create the running html bit
+        let runningHTML = "";
         for (let i = 0; i < questionsClass.length; i++){
             //create a div with the question, 
             runningHTML += '<div id="QC' + i + '"> <br> ' + questionsClass[i] + ' <br> '; 
