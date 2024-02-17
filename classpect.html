@@ -19,16 +19,17 @@
         importance of your answer to you. A question where all options seemed equally suitable and you selected 
         mostly at random should be given a low importance, while a question where the answer you choose stood out 
         strongly from all the others should be given a high importance.
-        <button type="button" onclick="populateQuestionsClass()">Begin anew?</button> 
-        <br>
-        <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
+        <br><br>
+        <button type="button" onclick="populateQuestionsClass()">Begin anew?</button>    <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
         <br><br><br>
         <a id="scoresgohere"></a>
     </div>
-    <div> 
+    <div id="questionsgohere">
+        
     </div>
 </body>
 <script>
+    /* CLASS */
     const questionsClass = [
         "Which is most interesting to you?",
         "Would you rather create and repair, or challenge and defeat?",
@@ -101,17 +102,18 @@
 
     function populateQuestionsClass(){
         //FIXME
+        var runningHTML = "Hello world!"
         //create the running html bit
-        for (let q in questions){
-            //create a div with the question, the answer bit with the ID "Q#a", the answers as options, and the importance with the ID "Q#i", 
+        for (let q in questionsClass){
+            //create a div with the question, the answer bit with the ID "QC#a", the answers as options, and the importance with the ID "QC#i", 
             //add it to the running html bit
         }
         //finalize the running html bit
         //add the running html bit to the document
+        document.getElementById("questionsgohere").value = runningHTML;
     }
 
-    // ASPECT
-
+    /* ASPECT */
     const questionsAspect = [
         "Which of these statements feels most powerful?",
         "Which of these do you find the wisest perspective?",
@@ -121,6 +123,7 @@
         "Are you at home more with certainty, or uncertainty?",
         "Do you prefer chaos or order?",
         "Are an individual's most important qualities those that are innate, or those that are chosen?"
+        "What's more important: that an enemy lose, or that you win?"
     ]
 
     const answersAspect = [
@@ -131,7 +134,8 @@
         ["Reality.", "Truth."],
         ["Certainty", "Uncertainty"],
         ["Chaos.", "Order."],
-        ["Those that are innate.", "Those that are chosen."]
+        ["Those that are innate.", "Those that are chosen."],
+        ["That my enemy lose.", "That I win."]
     ]
 
     const pointsAspect = [
@@ -142,8 +146,22 @@
         [["Rage"], ["Hope"]],
         [["Light"], ["Void"]],
         [["Life"], ["Doom"]],
-        [["Heart"], ["Mind"]]
+        [["Heart"], ["Mind"]],
+        [["Blood", "Doom", "Mind", "Rage" "Time", "Void"], ["Breath", "Heart", "Hope", "Life", "Light", "Space"]]
     ]
+
+    function populateQuestionsAspect(){
+        //FIXME
+        //create the running html bit
+        for (let q in questionsAspect){
+            //create a div with the question, the answer bit with the ID "QA#a", the answers as options, and the importance with the ID "QA#i", 
+            //add it to the running html bit
+        }
+        //finalize the running html bit
+        //add the running html bit to the document
+    }
+
+    /* Functionality */
     
     function calculateScores(){
         //clear out the old answers
