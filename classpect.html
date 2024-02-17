@@ -9,7 +9,7 @@
 <style>
     div {
         border: 2px solid darkred;
-        width: 55%;
+        width: 75%;
         margin: auto;
         text-align: center;
     }
@@ -22,7 +22,7 @@
         <br><br>
         <button type="button" onclick="populateQuestionsClass()">Begin anew?</button>    <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
         <br><br><br>
-        Debug console.logs in place -- fixed the other comma
+        Debug console.logs in place -- got the answers populating?
         <a id="scoresgohere"></a>
     </div>
     <div id="questionsgohere">
@@ -102,7 +102,6 @@
     function populateQuestionsClass(){
         //FIXME
         console.log("got into the function")
-        var runningHTML = "Hello world!";
         //create the running html bit
         for (let i = 0; i < questionsClass.length; i++){
             //create a div with the question, 
@@ -110,7 +109,7 @@
             //the answer bit with the ID "QC#a" and the answers as options,
             runningHTML += '<select id="QC' + i + 'a">';
             for (let j = 0; j < answersClass[i].length; j++) {
-                
+                runningHTML += '<option value=' + j + '>' + answersClass[i][j] + '</option>';
             }
             runningHTML += '</select> <br> ';
             //the importance with the ID "QC#i", 
@@ -119,7 +118,6 @@
         //finalize the running html bit
         //add the running html bit to the document
         document.getElementById("questionsgohere").innerHTML = runningHTML;
-        console.log("Hello world!");
     }
 
     /* ASPECT */
