@@ -20,71 +20,74 @@
         mostly at random should be given a low importance, while a question where the answer you choose stood out 
         strongly from all the others should be given a high importance.
     </div>
-    <br>
-    <div> Which is most interesting to you?
-        <select id="Q1">
-            <option value="Q1Aa">Exploring the nature or possibilities of something.</option>
-            <option value="Q1Ab">Exploiting the value or usage of something.</option>
-            <option value="Q1Ac">Establishing the presence or impact of something.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q1I"> - High
-          </div>
+    <div> <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
+        <br>
+        <a id="scoresgohere"></a>
     </div>
-    <br><br><br>
-    <div>Would you rather create and repair, or challenge and defeat?
-        <select id="Q2">
-            <option value="Q2Aa">Create and repair.</option>
-            <option value="Q2Ab">Challenge and defeat.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q2I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>Would you rather take and give, or have and wield?
-        <select id="Q3">
-            <option value="Q3Aa">Take and give.</option>
-            <option value="Q3Ab">Have and wield.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q3I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>Would you rather know and understand, or play with and change?
-        <select id="Q4">
-            <option value="Q4Aa">Know and understand.</option>
-            <option value="Q4Ab">Play with and change.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q4I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>Would you rather forge ahead, or wait and see?
-        <select id="Q5">
-            <option value="Q5Aa">Forge ahead.</option>
-            <option value="Q5Ab">Wait and see.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q5I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>Which sounds most like something you'd say when working in a team?
-        <select id="Q6">
-            <option value="Q6Aa">I know what we need to do.</option>
-            <option value="Q6Ab">I'll do what needs to be done.</option>
-            <option value="Q6Ac">We can do this!</option>
-            <option value="Q6Ad">I'll just take care of a few details...</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q6I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>Which most describes you?
+</body>
+<script>
+    const questions = [
+        "Which is most interesting to you?",
+        "Would you rather create and repair, or challenge and defeat?",
+        "Would you rather have something of worth, or something of use?",
+        "Would you rather know and understand, or play with and change?",
+        "Would you rather forge ahead, or wait and see?",
+        "Which sounds most like something you'd say when working in a team?",
+        "Where are you in the fight?",
+        "???",
+        "When a friend is making a choice, what's your input?",
+        "???",
+        "What do you most want from the people around you?",
+        "When you lose someone or something (an object, a relationship, a dream), where in the grieving process do you linger?",
+        "Which of these do you most need to learn?",
+        "When trying a new direction in your life, where in the process of change do you linger?",
+        "If you were to be known, long after your death, by a title which commemorated your greatest deeds in life, which of the following rings closest to your desires?"
+    ]
+    const answers = [
+        ["Exploring the nature or possibilities of something.", "Exploiting the value or usage of something.", "Establishing the extent or impact of something."],
+        ["Create and repair.", "Challenge and defeat."],
+        ["Something of use.", "Something of worth."],
+        ["Know and understand.", "Play with and change."],
+        ["Wait and see.", "Forge ahead."],
+        4 ["I know what we need to do.", "I'll do what needs to be done.", "We can do this!", "I'll just take care of a few details..."],
+        3 ["On the front lines.", "Providing backup.", "At the strategy table."],
+        4 [], 
+        3 ["I'm here to back them up, whatever they choose.", "I'm here to speak to my own interests, their choices are their own.", "I'm here to urge them to make the right choice, I have insight to offer."],
+        4 [],
+        3 ["Their friendship.", "Their respect.", "Their happiness."],
+        4 ["Shock and denial.", "Pain and guilt", "Anger and bargaining.", "Depression and helplessness."],
+        3 ["I need to be more thoughtful or respectful with others.", "I need to value and be good to myself.", "I need to speak up and be honest and direct with others."],
+        4 ["Contemplation.", "Preparation.", "Action.", "Maintenance."],
+        ["The Builder", "The Mender", "The Victorious", "The Calamitous", "The Untamable", "The Honorable", "The Good", "The Great", "The Wise", "The All-Knowing", "The Vortex", "The Nexus"]
+    ]
+    // Bard, Heir, Knight, Mage, Maid, Page, Prince, Rogue, Seer, Sylph, Thief, Witch
+
+        //    4 [["Mage", "Thief", "Witch"], ["Knight", "Maid", "Prince"], ["Heir", "Page", "Rogue"], ["Bard", "Seer", "Sylph"]],
+                    //AAA                        BBB                                CCC                        DDD
+        //    4 [["Bard", "Heir", "Rogue"], ["Knight", "Mage", "Sylph"], ["Prince", "Thief", "Witch"], ["Maid", "Page", "Seer"]],
+                    //DaCaCa                     BbAbDb                        BcAcAc                        BdCdDd
+        // "Heir", "Seer", "Sylph"       // "Bard", "Mage", "Page"      // "Prince", "Thief", "Witch"        // "Knight", "Maid", "Rogue"
+                    //CaaDdaDba                DabAbbCdb                    BccAccAcc                            BbdBdbCad
+        
+    const points = [
+        [["Mage", "Seer", "Witch", "Heir"], ["Thief", "Rogue", "Knight", "Page"], ["Maid", "Sylph", "Prince", "Bard"]],
+        [["Maid", "Sylph"], ["Prince", "Bard"]],
+        [["Knight", "Page"], ["Thief", "Rogue"]],
+        [["Mage", "Seer"], ["Witch", "Heir"]],
+        [["Maid", "Prince", "Thief", "Knight", "Mage", "Witch"], ["Sylph", "Bard", "Rogue", "Page", "Seer", "Heir"]],
+        4 [["Mage", "Thief", "Witch"], ["Knight", "Maid", "Prince"], ["Heir", "Page", "Rogue"], ["Bard", "Seer", "Sylph"]],
+        3 [["Knight", "Maid", "Prince", "Thief", "Witch"], ["Heir", "Mage", "Maid", "Page", "Rogue"], ["Bard", "Mage", "Seer", "Sylph", "Thief"]],
+        4 [[], [], [], []],
+        3 [["Heir", "Knight", "Mage", "Page", "Rogue"], ["Bard", "Maid", "Rogue", "Thief", "Witch"], ["Heir", "Prince", "Seer", "Sylph", "Witch"]],
+        4 [[], [], [], []],
+        3 [["Bard", "Heir", "Knight", "Seer", "Witch"], ["Mage", "Maid", "Seer", "Sylph", "Thief"], ["Knight", "Page", "Prince", "Rogue", "Sylph"]],
+        4 [["Bard", "Heir", "Rogue"], ["Knight", "Mage", "Sylph"], ["Prince", "Thief", "Witch"], ["Maid", "Page", "Seer"]],
+        3 [["Bard", "Prince", "Thief", "Seer", "Witch"], ["Mage", "Maid", "Page", "Prince", "Rogue"], ["Bard", "Heir", "Knight", "Page", "Sylph"]],
+        4 [["Heir", "Seer", "Sylph"], ["Bard", "Mage", "Page"], ["Prince", "Thief", "Witch"], ["Knight", "Maid", "Rogue"]],
+        [["Maid"], ["Sylph"], ["Prince"], ["Bard"], ["Thief"], ["Rogue"], ["Knight"], ["Page"], ["Mage"], ["Seer"], ["Witch"], ["Heir"]]
+    ]
+
+/*Which most describes you?
         <select id="Q7">
             <option value="Q7Aa">Cheerful and friendly.</option>
             <option value="Q7Ab">Thoughtful and uncertain.</option>
@@ -94,128 +97,13 @@
             Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q7I"> - High
           </div>
     </div>
-    <br><br><br>
-    <div>Where are you in the fight?
-        <select id="Q8">
-            <option value="Q8Aa">On the front lines.</option>
-            <option value="Q8Ab">Providing backup.</option>
-            <option value="Q8Ac">At the strategy table.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q8I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>When a friend is making a choice, what's your input?
-        <select id="Q9">
-            <option value="Q9Aa">I'm here to back them up, whatever they choose.</option>
-            <option value="Q9Ab">I'm here to protect my own interests, I don't care otherwise.</option>
-            <option value="Q9Ac">I'm here to urge them to make the right choice, I have insight to offer.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q9I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>Which of these do you most need to learn?
-        <select id="Q10">
-            <option value="Q10Aa">I need to learn to value and be good to myself.</option>
-            <option value="Q10Ab">I need to speak up and be open with others.</option>
-            <option value="Q10Ac">I need to learn to be more thoughtful or respectful with others.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q10I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>Which of these desires comes before all the others, for you?
-        <select id="Q11">
-            <option value="Q11Aa">I want to do right by my friends, and by myself.</option>
-            <option value="Q11Ab">I want to reach my goal, whatever that looks like.</option>
-            <option value="Q11Ac">I want to treasure what's truly important in life.</option>
-            <option value="Q11Ad">I want to be comfortable with myself and who I am.</option>
-            <option value="Q11Ae">I want to find the path that'll take me into a good future.</option>
-            <option value="Q11Af">I want to vividly experience life and all its possibilities in every moment.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q11I"> - High
-          </div>
-    </div>
-    <br><br><br>
-    <div>If you were to be known, long after your death, by a title which commemorated your greatest deeds in life, 
-    which of the following rings closest to your desires?
-        <select id="Q12">
-            <option value="Q12Aa">The Builder</option>
-            <option value="Q12Ab">The Mender</option>
-            <option value="Q12Ac">The Victorious</option>
-            <option value="Q12Ad">The Calamitous</option>
-            <option value="Q12Ae">The Untamable</option>
-            <option value="Q12Af">The Honorable</option>
-            <option value="Q12Ag">The Good</option>
-            <option value="Q12Ah">The Great</option>
-            <option value="Q12Ai">The Wise</option>
-            <option value="Q12Aj">The All-Knowing</option>
-            <option value="Q12Ak">The Vortex</option>
-            <option value="Q12Al">The Nexus</option>
-        </select>
-        <br><div class="slidecontainer"> Importance:
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q12I"> - High
-        </div>
-    </div>
-    <br><br><br>
-    <div> <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
-        <br>
-        <a id="scoresgohere"></a>
-    </div>
-</body>
-<script>
-    const key = {
-        "Q1Aa": ["Mage", "Seer", "Witch", "Heir"],
-        "Q1Ab": ["Thief", "Rogue", "Knight", "Page"],
-        "Q1Ac": ["Maid", "Sylph", "Prince", "Bard"],
-        "Q2Aa": ["Maid", "Sylph"],
-        "Q2Ab": ["Prince", "Bard"],
-        "Q3Aa": ["Thief", "Rogue"],
-        "Q3Ab": ["Knight", "Page"],
-        "Q4Aa": ["Mage", "Seer"],
-        "Q4Ab": ["Witch", "Heir"],
-        "Q5Aa": ["Maid", "Prince", "Thief", "Knight", "Mage", "Witch"],
-        "Q5Ab": ["Sylph", "Bard", "Rogue", "Page", "Seer", "Heir"],
-        "Q6Aa": ["Thief", "Mage", "Witch"],
-        "Q6Ab": ["Maid", "Prince", "Knight"],
-        "Q6Ac": ["Rogue", "Page", "Heir"],
-        "Q6Ad": ["Sylph", "Bard", "Seer"],
+        const key = {
         "Q7Aa": ["Maid", "Bard", "Rogue", "Witch", "Heir"],
         "Q7Ab": ["Sylph", "Rogue", "Page", "Mage", "Seer"],
         "Q7Ac": ["Prince", "Thief", "Knight", "Seer", "Witch"],
-        "Q8Aa": ["Maid", "Prince", "Thief", "Knight", "Witch"],
-        "Q8Ab": ["Maid", "Rogue", "Page", "Mage", "Heir"],
-        "Q8Ac": ["Sylph", "Bard", "Thief", "Mage", "Seer"],
-        "Q9Aa": ["Rogue", "Knight", "Page", "Mage", "Heir"],
-        "Q9Ab": ["Maid", "Sylph", "Bard", "Thief", "Knight"],
-        "Q9Ac": ["Sylph", "Prince", "Seer", "Witch", "Heir"],
-        "Q10Aa": ["Maid", "Prince", "Rogue", "Page", "Heir"],
-        "Q10Ab": ["Sylph", "Bard", "Knight", "Page", "Mage"],
-        "Q10Ac": ["Prince", "Bard", "Thief", "Seer", "Witch"],
-        "Q11Aa": ["Maid", "Sylph"],
-        "Q11Ab": ["Prince", "Bard"],
-        "Q11Ac": ["Thief", "Rogue"],
-        "Q11Ad": ["Knight", "Page"],
-        "Q11Ae": ["Mage", "Seer"],
-        "Q11Af": ["Witch", "Heir"],
-        "Q12Aa": ["Maid"],
-        "Q12Ab": ["Sylph"],
-        "Q12Ac": ["Prince"],
-        "Q12Ad": ["Bard"],
-        "Q12Ae": ["Thief"],
-        "Q12Af": ["Rogue"],
-        "Q12Ag": ["Knight"],
-        "Q12Ah": ["Page"],
-        "Q12Ai": ["Mage"],
-        "Q12Aj": ["Seer"],
-        "Q12Ak": ["Witch"],
-        "Q12Al": ["Heir"]
     }
+*/
+    
     let classes = {
         "Maid": 0,
         "Sylph": 0,
@@ -226,14 +114,25 @@
         "Knight": 0,
         "Page": 0,
         "Mage": 0,
-        "Seer":0 ,
+        "Seer": 0,
         "Witch": 0,
         "Heir": 0
     }
+
+    function populateQuestions(){
+        //FIXME
+        for (let q in questions){
+            
+        }
+    }
+    
     function calculateScores(){
         //clear out the old answers
         for (let x in classes){
             classes[x] = 0;
+        }
+        for (let q in questions){
+            
         }
         //Q1
         var q1 = document.getElementById("Q1").value;
