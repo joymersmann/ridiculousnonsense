@@ -26,38 +26,34 @@
     </div>
 </body>
 <script>
-    const questions = [
+    const questionsClass = [
         "Which is most interesting to you?",
         "Would you rather create and repair, or challenge and defeat?",
         "Would you rather have something of worth, or something of use?",
         "Would you rather know and understand, or play with and change?",
         "Would you rather forge ahead, or wait and see?",
-        "Which sounds most like something you'd say when working in a team?",
+         "Which sounds most like something you'd say when working in a team?",
         "Where are you in the fight?",
-        "???",
-        "When a friend is making a choice, what's your input?",
-        "???",
-        "What do you most want from the people around you?",
-        "When you lose someone or something (an object, a relationship, a dream), where in the grieving process do you linger?",
+        "When a friend is making a choice, what's your stake in it?",
+        "What do you want most from the people around you?",
+         "When you lose someone or something (an object, a relationship, a dream), where in the grieving process do you linger?",
         "Which of these do you most need to learn?",
-        "When trying a new direction in your life, where in the process of change do you linger?",
+         "When trying a new direction in your life, where in the process of change do you invest the most time?",
         "If you were to be known, long after your death, by a title which commemorated your greatest deeds in life, which of the following rings closest to your desires?"
     ]
-    const answers = [
+    const answersClass = [
         ["Exploring the nature or possibilities of something.", "Exploiting the value or usage of something.", "Establishing the extent or impact of something."],
         ["Create and repair.", "Challenge and defeat."],
         ["Something of use.", "Something of worth."],
         ["Know and understand.", "Play with and change."],
         ["Wait and see.", "Forge ahead."],
-        4 ["I know what we need to do.", "I'll do what needs to be done.", "We can do this!", "I'll just take care of a few details..."],
-        3 ["On the front lines.", "Providing backup.", "At the strategy table."],
-        4 [], 
-        3 ["I'm here to back them up, whatever they choose.", "I'm here to speak to my own interests, their choices are their own.", "I'm here to urge them to make the right choice, I have insight to offer."],
-        4 [],
-        3 ["Their friendship.", "Their respect.", "Their happiness."],
-        4 ["Shock and denial.", "Pain and guilt", "Anger and bargaining.", "Depression and helplessness."],
-        3 ["I need to be more thoughtful or respectful with others.", "I need to value and be good to myself.", "I need to speak up and be honest and direct with others."],
-        4 ["Contemplation.", "Preparation.", "Action.", "Maintenance."],
+         ["I know what we need to do.", "I'll do what needs to be done.", "We can do this!", "I'll just take care of a few details..."],
+        ["On the front lines.", "Providing backup.", "At the strategy table."],
+        ["I'm here to back them up, whatever they choose.", "I'm here to speak to my own interests, their choices are their own.", "I'm here to urge them to make the right choice, I have insight to offer."],
+        ["Their friendship.", "Their respect.", "Their happiness."],
+         ["Shock and denial.", "Pain and guilt", "Anger and bargaining.", "Depression and helplessness."],
+        ["I need to be more thoughtful or respectful with others.", "I need to value and be good to myself.", "I need to speak up and be honest and direct with others."],
+         ["Contemplation.", "Preparation.", "Action.", "Maintenance."],
         ["The Builder", "The Mender", "The Victorious", "The Calamitous", "The Untamable", "The Honorable", "The Good", "The Great", "The Wise", "The All-Knowing", "The Vortex", "The Nexus"]
     ]
     // Bard, Heir, Knight, Mage, Maid, Page, Prince, Rogue, Seer, Sylph, Thief, Witch
@@ -69,40 +65,21 @@
         // "Heir", "Seer", "Sylph"       // "Bard", "Mage", "Page"      // "Prince", "Thief", "Witch"        // "Knight", "Maid", "Rogue"
                     //CaaDdaDba                DabAbbCdb                    BccAccAcc                            BbdBdbCad
         
-    const points = [
+    const pointsClass = [
         [["Mage", "Seer", "Witch", "Heir"], ["Thief", "Rogue", "Knight", "Page"], ["Maid", "Sylph", "Prince", "Bard"]],
         [["Maid", "Sylph"], ["Prince", "Bard"]],
         [["Knight", "Page"], ["Thief", "Rogue"]],
         [["Mage", "Seer"], ["Witch", "Heir"]],
         [["Maid", "Prince", "Thief", "Knight", "Mage", "Witch"], ["Sylph", "Bard", "Rogue", "Page", "Seer", "Heir"]],
-        4 [["Mage", "Thief", "Witch"], ["Knight", "Maid", "Prince"], ["Heir", "Page", "Rogue"], ["Bard", "Seer", "Sylph"]],
-        3 [["Knight", "Maid", "Prince", "Thief", "Witch"], ["Heir", "Mage", "Maid", "Page", "Rogue"], ["Bard", "Mage", "Seer", "Sylph", "Thief"]],
-        4 [[], [], [], []],
-        3 [["Heir", "Knight", "Mage", "Page", "Rogue"], ["Bard", "Maid", "Rogue", "Thief", "Witch"], ["Heir", "Prince", "Seer", "Sylph", "Witch"]],
-        4 [[], [], [], []],
-        3 [["Bard", "Heir", "Knight", "Seer", "Witch"], ["Mage", "Maid", "Seer", "Sylph", "Thief"], ["Knight", "Page", "Prince", "Rogue", "Sylph"]],
-        4 [["Bard", "Heir", "Rogue"], ["Knight", "Mage", "Sylph"], ["Prince", "Thief", "Witch"], ["Maid", "Page", "Seer"]],
-        3 [["Bard", "Prince", "Thief", "Seer", "Witch"], ["Mage", "Maid", "Page", "Prince", "Rogue"], ["Bard", "Heir", "Knight", "Page", "Sylph"]],
-        4 [["Heir", "Seer", "Sylph"], ["Bard", "Mage", "Page"], ["Prince", "Thief", "Witch"], ["Knight", "Maid", "Rogue"]],
+         [["Mage", "Thief", "Witch"], ["Knight", "Maid", "Prince"], ["Heir", "Page", "Rogue"], ["Bard", "Seer", "Sylph"]],
+        [["Knight", "Maid", "Prince", "Thief", "Witch"], ["Heir", "Mage", "Maid", "Page", "Rogue"], ["Bard", "Mage", "Seer", "Sylph", "Thief"]],
+        [["Heir", "Knight", "Mage", "Page", "Rogue"], ["Bard", "Maid", "Rogue", "Thief", "Witch"], ["Heir", "Prince", "Seer", "Sylph", "Witch"]],
+        [["Bard", "Heir", "Knight", "Seer", "Witch"], ["Mage", "Maid", "Seer", "Sylph", "Thief"], ["Knight", "Page", "Prince", "Rogue", "Sylph"]],
+         [["Bard", "Heir", "Rogue"], ["Knight", "Mage", "Sylph"], ["Prince", "Thief", "Witch"], ["Maid", "Page", "Seer"]],
+        [["Bard", "Prince", "Thief", "Seer", "Witch"], ["Mage", "Maid", "Page", "Prince", "Rogue"], ["Bard", "Heir", "Knight", "Page", "Sylph"]],
+         [["Heir", "Seer", "Sylph"], ["Bard", "Mage", "Page"], ["Prince", "Thief", "Witch"], ["Knight", "Maid", "Rogue"]],
         [["Maid"], ["Sylph"], ["Prince"], ["Bard"], ["Thief"], ["Rogue"], ["Knight"], ["Page"], ["Mage"], ["Seer"], ["Witch"], ["Heir"]]
     ]
-
-/*Which most describes you?
-        <select id="Q7">
-            <option value="Q7Aa">Cheerful and friendly.</option>
-            <option value="Q7Ab">Thoughtful and uncertain.</option>
-            <option value="Q7Ac">Goal-oriented and determined.</option>
-        </select>
-        <br><div class="slidecontainer"> Importance: 
-            Low - <input type="range" min="1" max="3" value="1" class="slider" id="Q7I"> - High
-          </div>
-    </div>
-        const key = {
-        "Q7Aa": ["Maid", "Bard", "Rogue", "Witch", "Heir"],
-        "Q7Ab": ["Sylph", "Rogue", "Page", "Mage", "Seer"],
-        "Q7Ac": ["Prince", "Thief", "Knight", "Seer", "Witch"],
-    }
-*/
     
     let classes = {
         "Maid": 0,
@@ -119,12 +96,47 @@
         "Heir": 0
     }
 
-    function populateQuestions(){
+    function populateQuestionsClass(){
         //FIXME
         for (let q in questions){
             
         }
     }
+
+    // ASPECT
+
+    const questionsAspect = [
+        "Which of these feels most powerful?",
+        "Which of these do you find the wisest perspective?",
+        "Does it matter more what we allow to grow, or what we accept will fade?",
+        "Are we as people more defined by what drives us forward, or what holds us back?",
+        "Is it more important to focus on what is real, or what is true?",
+        "Are you at home more with certainty, or uncertainty?",
+        "Do you prefer chaos or order?",
+        "Are an individual's most important qualities those that are innate, or those that are chosen?"
+    ]
+
+    const answersAspect = [
+        ["Let's see what happens.", "No such thing as a no-win scenario.", "If we believe in ourselves, we can change the world.", "I am who I am, and I won't be dissuaded.", "Trust what you know to be true.", "Seek the wisdom to know the difference.", "Accept what can't be changed.", "Don't lie to yourself.", "I refuse to go along with this.", "We have to make a choice.", "We don't know what will happen.", "Anything could happen."]
+        ["Realism", "Pessimism", "Optimism", "Idealism"],
+        ["What we allow to grow.", "What we accept will fade."],
+        ["What drives us forward.", "What holds us back."],
+        ["Reality.", "Truth."],
+        ["Certainty", "Uncertainty"],
+        ["Chaos.", "Order."],
+        ["Those that are innate.", "Those that are chosen."]
+    ]
+
+    const pointsAspect = [
+        [["Space", "Life"], ["Life", "Hope"], ["Hope", "Breath"], ["Breath", "Heart"], ["Heart", "Light"], ["Light", "Time"], ["Time", "Doom"], ["Doom", "Rage"], ["Rage", "Blood"], ["Blood", "Mind"], ["Mind", "Void"], ["Void", "Space"]],
+        [["Doom", "Time", "Light"], ["Blood", "Rage", "Mind"], ["Life", "Space", "Void"], ["Breath", "Heart", "Hope"]],
+        [["Space"], ["Time"]],
+        [["Breath"], ["Blood"]],
+        [["Rage"], ["Hope"]],
+        [["Light"], ["Void"]],
+        [["Life"], ["Doom"]],
+        [["Heart"], ["Mind"]]
+    ]
     
     function calculateScores(){
         //clear out the old answers
