@@ -22,7 +22,7 @@
         <br><br>
         <button type="button" onclick="populateQuestionsClass()">Begin anew?</button>    <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
         <br><br><br>
-        Debug console.logs in place -- got the answers populating?
+        Debug console.logs in place -- debugging the answers population
         <a id="scoresgohere"></a>
     </div>
     <div id="questionsgohere">
@@ -111,6 +111,7 @@
             for (let j = 0; j < answersClass[i].length; j++) {
                 runningHTML += '<option value=' + j + '>' + answersClass[i][j] + '</option>';
             }
+            console.log("got past answers adding?")
             runningHTML += '</select> <br> ';
             //the importance with the ID "QC#i", 
             runningHTML += '<br> Importance? <br> <input type="range" min="1" max="3" value="1" id="QC' + i + 'i"> </div>';
