@@ -10,7 +10,7 @@
     div {
         border: 2px solid darkred;
         width: 55%;
-        margin: 3px;
+        margin: auto;
         text-align: center;
     }
 </style>
@@ -22,7 +22,7 @@
         <br><br>
         <button type="button" onclick="populateQuestionsClass()">Begin anew?</button>    <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
         <br><br><br>
-        Debug console.logs in place
+        Debug console.logs in place -- fixed aspect array?
         <a id="scoresgohere"></a>
     </div>
     <div id="questionsgohere">
@@ -104,12 +104,18 @@
         console.log("got into the function")
         var runningHTML = "Hello world!";
         //create the running html bit
-        //for (let i = 0; i < questionsClass.length; i++){
-          //  runningHTML += '<div id="QC' + i + '"> <br> ' + questionsClass[i] + ' <br> '; //create a div with the question, the answer bit with the ID "QC#a", the answers as options, and 
+        for (let i = 0; i < questionsClass.length; i++){
+            //create a div with the question, 
+            runningHTML += '<div id="QC' + i + '"> <br> ' + questionsClass[i] + ' <br> '; 
+            //the answer bit with the ID "QC#a" and the answers as options,
+            runningHTML += '<select id="QC' + i + 'a">';
+            for (let j = 0; j < answersClass[i].length; j++) {
+                
+            }
+            runningHTML += '</select> <br> ';
             //the importance with the ID "QC#i", 
-            //runningHTML += '<input type="range" min="1" max="3" value="1" id="QC' + i + 'i"> </div>';
-            //add it to the running html bit
-        //}
+            runningHTML += '<br> Importance? <br> <input type="range" min="1" max="3" value="1" id="QC' + i + 'i"> </div>';
+        }
         //finalize the running html bit
         //add the running html bit to the document
         document.getElementById("questionsgohere").innerHTML = runningHTML;
@@ -125,12 +131,12 @@
         "Is it more important to focus on what is real, or what is true?",
         "Are you at home more with certainty, or uncertainty?",
         "Do you prefer chaos or order?",
-        "Are an individual's most important qualities those that are innate, or those that are chosen?"
+        "Are an individual's most important qualities those that are innate, or those that are chosen?",
         "What's more important: that an enemy lose, or that you win?"
-    ]
+    ];
 
     const answersAspect = [
-        ["Let's see what happens.", "No such thing as a no-win scenario.", "If we believe in ourselves, we can change the world.", "I am who I am, and I won't be dissuaded.", "Trust what you know to be true.", "Seek the wisdom to know the difference.", "Accept what can't be changed.", "Don't lie to yourself.", "I refuse to go along with this.", "We have to make a choice.", "We don't know what will happen.", "Anything could happen."]
+        ["Let's see what happens.", "No such thing as a no-win scenario.", "If we believe in ourselves, we can change the world.", "I am who I am, and I won't be dissuaded.", "Trust what you know to be true.", "Seek the wisdom to know the difference.", "Accept what can't be changed.", "Don't lie to yourself.", "I refuse to go along with this.", "We have to make a choice.", "We don't know what will happen.", "Anything could happen."],
         ["Realism", "Pessimism", "Optimism", "Idealism"],
         ["What we allow to grow.", "What we accept will fade."],
         ["What drives us forward.", "What holds us back."],
