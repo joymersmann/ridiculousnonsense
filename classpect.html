@@ -22,7 +22,7 @@
         <br><br>
         <button type="button" onclick="populateQuestionsClass()">Seek your class</button>    <button id="calculate" type="button" onclick="calculateScoresClass()">Calculate your scores.</button>  <button type="button" onclick="populateQuestionsAspect()">Seek your aspect.</button>
         <br><br><br>
-        class AND aspect? <br>
+        class AND aspect? try again 1 <br>
         <a id="scoresgohere"></a>
     </div>
     <div id="questionsgohere">
@@ -96,7 +96,8 @@
     };
     
     function populateQuestionsClass(){
-        document.getElementByID("calculate").onclick = calculateScoresClass();
+        console.log(document.getElementByID("calculate").onclick);
+        //document.getElementByID("calculate").onclick = calculateScoresClass();
         document.getElementById("scoresgohere").innerHTML = "";
         
         //create the running html bit
@@ -170,7 +171,8 @@
     };
 
     function populateQuestionsAspect(){
-        document.getElementByID("calculate").onclick = calculateScoresAspect();
+        console.log(document.getElementByID("calculate").onclick);
+        //document.getElementByID("calculate").onclick = calculateScoresAspect();
         document.getElementById("scoresgohere").innerHTML = "";
         //create the running html bit
         let runningHTML = " <h1> Aspect </h1>";
