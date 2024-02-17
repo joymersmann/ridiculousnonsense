@@ -20,7 +20,7 @@
         mostly at random should be given a low importance, while a question where the answer you choose stood out 
         strongly from all the others should be given a high importance.
         <br><br>
-        <button type="button" onclick="populateQuestionsClass()">Begin anew?</button>    <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
+        <button type="button" onclick="populateQuestionsClass()">Seek your class</button>    <button id="calculate" type="button" onclick="calculateScoresClass()">Calculate your scores.</button>  <button type="button" onclick="populateQuestionsAspect()">Seek your aspect.</button>
         <br><br><br>
         Debug console.logs in place -- trying calculateScores 1
         <a id="scoresgohere"></a>
@@ -96,6 +96,9 @@
     };
     
     function populateQuestionsClass(){
+        document.getElementByID("calculate").onclick = calculateScoresClass();
+        document.getElementById("scoresgohere").innerHTML = "";
+        
         //create the running html bit
         let runningHTML = " <h1> Class </h1> ";
         for (let i = 0; i < questionsClass.length; i++){
@@ -150,8 +153,25 @@
         [["Heart"], ["Mind"]],
         [["Blood", "Doom", "Mind", "Rage", "Time", "Void"], ["Breath", "Heart", "Hope", "Life", "Light", "Space"]]
     ]
+    
+    let aspects = {
+        "Space": 0,
+        "Life": 0,
+        "Hope": 0,
+        "Breath": 0,
+        "Heart": 0,
+        "Light": 0,
+        "Time": 0,
+        "Doom": 0,
+        "Rage": 0,
+        "Blood": 0,
+        "Mind": 0,
+        "Void": 0
+    };
 
     function populateQuestionsAspect(){
+        document.getElementByID("calculate").onclick = calculateScoresAspect();
+        document.getElementById("scoresgohere").innerHTML = "";
         //create the running html bit
         let runningHTML = " <h1> Aspect </h1>";
         for (let i = 0; i < questionsAspect.length; i++){
@@ -171,7 +191,8 @@
     }
 
     /* Functionality */
-    function calculateScores(){
+    
+    function calculateScoresClass(){
         //clear out the old answers
         for (let x in classes){
             classes[x] = 0;
@@ -187,9 +208,30 @@
         console.log(classes)
         const results = Object.entries(classes);
         results.sort(function(a,b){return b[1]-a[1]});
-        document.getElementById("scoresgohere").innerHTML = "Your three highest results, in order, were " 
-            + results[0][0] + ", " + results[1][0] + ", and " + results[2][0] + ". Any of these may be a" + 
-            " good fit for you, depending on the Aspect they are paired with.";
+        document.getElementById("scoresgohere").innerHTML = "Your three highest results for Class, in order, were " 
+            + results[0][0] + ", " + results[1][0] + ", and " + results[2][0] 
+            + ". Any of these may be a good fit for you, depending on the Aspect they are paired with.";
+    }
+
+    function calculateScoresAspect(){
+        //clear out the old answers
+        for (let x in aspects){
+            aspects[x] = 0;
+        }
+        for (let i = 0; i < questionsAspect.length; i++){
+            let s = "QA" + i + "a";
+            let w = "QA" + i + "i";
+            let v = document.getElementById(s).value;
+            for (let j = 0; j < pointsAspect[i][v].length; j++){
+                aspects[pointsAspect[i][v][j]] += 1 * document.getElementById(w).value;
+            }
+        }
+        console.log(aspects)
+        const results = Object.entries(aspects);
+        results.sort(function(a,b){return b[1]-a[1]});
+        document.getElementById("scoresgohere").innerHTML = "Your three highest results for Aspect, in order, were " 
+            + results[0][0] + ", " + results[1][0] + ", and " + results[2][0] 
+            + ". Any of these may be a good fit for you, depending on the Class they are paired with.";
     }
 </script>
 </html>
