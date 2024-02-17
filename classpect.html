@@ -22,7 +22,7 @@
         <br><br>
         <button type="button" onclick="populateQuestionsClass()">Begin anew?</button>    <button type="button" onclick="calculateScores()">Calculate your scores.</button> 
         <br><br><br>
-        This is the latest one -- testing for hello world.
+        This is the latest one -- testing for hello world, using innerHTML.
         <a id="scoresgohere"></a>
     </div>
     <div id="questionsgohere">
@@ -111,7 +111,7 @@
         }
         //finalize the running html bit
         //add the running html bit to the document
-        document.getElementById("questionsgohere").value = runningHTML;
+        document.getElementById("questionsgohere").innerHTML = runningHTML;
     }
 
     /* ASPECT */
